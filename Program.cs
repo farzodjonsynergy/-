@@ -1,29 +1,43 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System;
-namespace FirstApp
+﻿using System;
+
+public class Student
 {
-    class Program
+    
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public double Grade { get; set; }
+
+    
+    public Student(string name, int age, double grade)
     {
-        static void Main(string[] args)
-        {
+        Name = name;
+        Age = age;
+        Grade = grade;
+    }
 
-            string name = "Farzod";
-            int age = 20;
-            bool isEmployed = true;
-            double weight = 65.50;
-
-
-            Console.WriteLine($"Имя:{name}");
-            Console.WriteLine($"Возраст:{age}");
-            Console.WriteLine($"Вес:{weight}");
-            Console.WriteLine($"Студент:{isEmployed}");
-        }
+    
+    public bool IsExcellent()
+    {
+        return Grade >= 5.0;
     }
 }
 
 
+public class Program
+{
+    public static void Main(string[] args)
+    {
+       
+        Student student = new Student("Шарифзода Фарзод", 20, 5);
 
-
-
-
-
+       
+        if (student.IsExcellent())
+        {
+            Console.WriteLine($"{student.Name} является отличником.");
+        }
+        else
+        {
+            Console.WriteLine($"{student.Name} не является отличником.");
+        }
+    }
+}
